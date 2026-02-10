@@ -1,0 +1,11 @@
+# No ignorar archivos en Vercel
+# Vercel es un servidor web estático
+# Solo ignoramos archivos de desarrollo
+
+.git
+.github
+.gitignore
+node_modules
+*.md
+.env
+.env.local

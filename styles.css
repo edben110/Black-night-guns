@@ -1,0 +1,29 @@
+body {
+  background: #111;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  background: grey;
+  display: block;
+  margin: 20px auto;
+}
+
+#restartBtn {
+  display: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  background: #28a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#restartBtn:hover {
+  background: #3cf;
+}

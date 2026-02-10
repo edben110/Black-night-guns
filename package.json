@@ -1,0 +1,12 @@
+{
+  "name": "black-night-guns",
+  "version": "1.0.0",
+  "description": "Juego de acción en canvas HTML5 - Black Night Guns",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000 || python3 -m http.server 8000"
+  },
+  "keywords": ["game", "canvas", "html5", "javascript"],
+  "author": "",
+  "license": "MIT"
+}

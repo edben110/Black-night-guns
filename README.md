@@ -1,12 +1,12 @@
-# Black Night Guns 🎮
+# Black Night Guns 
 
 Juego de acción 2D desarrollado con HTML5 Canvas, JavaScript vanilla y CSS.
 
-## 🎯 Descripción
+## Descripción
 
 Juego de acción donde controlas un personaje que debe enfrentarse a oleadas de enemigos. Incluye sistema de combate cuerpo a cuerpo, disparos, recarga de munición, curaciones y recolección de objetos.
 
-## 🕹️ Controles
+## Controles
 
 - **A/D**: Mover izquierda/derecha
 - **W/S**: Subir/Bajar
@@ -19,7 +19,7 @@ Juego de acción donde controlas un personaje que debe enfrentarse a oleadas de 
 - **P**: Pausa
 - **Enter**: Reiniciar después de perder
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 Black-night-guns/
@@ -32,7 +32,7 @@ Black-night-guns/
 └── README.md          # Este archivo
 ```
 
-## 🚀 Despliegue
+## Despliegue
 
 ### GitHub Pages
 
@@ -204,7 +204,7 @@ Crea este archivo para configuraciones avanzadas:
 }
 ```
 
-## 🧪 Prueba Local
+## Prueba Local
 
 ### Opción 1: Python HTTP Server
 ```bash
@@ -226,54 +226,54 @@ npx http-server -p 8000
 
 Abre tu navegador en: http://localhost:8000
 
-## 🎮 Características
+## Características
 
-- ✅ Combate cuerpo a cuerpo
-- ✅ Sistema de disparos con munición limitada
-- ✅ Sistema de recarga
-- ✅ Sistema de salud y curaciones
-- ✅ Recolección de objetos (munición y vendajes)
-- ✅ Sistema de pausa
-- ✅ Contador de enemigos derrotados
-- ✅ Mecánica de salto
-- ✅ Knockback al recibir daño
-- ✅ Barras de progreso para acciones
+- Combate cuerpo a cuerpo
+- Sistema de disparos con munición limitada
+- Sistema de recarga
+- Sistema de salud y curaciones
+- Recolección de objetos (munición y vendajes)
+- Sistema de pausa
+- Contador de enemigos derrotados
+- Mecánica de salto
+- Knockback al recibir daño
+- Barras de progreso para acciones
 
-## 🛠️ Tecnologías
+## Tecnologías
 
 - HTML5 Canvas
 - JavaScript ES6+
 - CSS3
 
-## 📝 Notas de Despliegue
+## Notas de Despliegue
 
 ### GitHub Pages
-- ✅ **Gratis** para repositorios públicos
-- ✅ **Fácil** de configurar
-- ⚠️ Solo sitios estáticos
-- 🔗 URL: `usuario.github.io/repositorio`
+- **Gratis** para repositorios públicos
+- **Fácil** de configurar
+- Solo sitios estáticos
+- URL: `usuario.github.io/repositorio`
 
 ### Vercel
-- ✅ **Gratis** para proyectos personales
-- ✅ **Deploy automático** con Git
-- ✅ **HTTPS gratis**
-- ✅ **Preview deployments** para PRs
-- 🔗 URL: `proyecto.vercel.app`
+- **Gratis** para proyectos personales
+- **Deploy automático** con Git
+- **HTTPS gratis**
+- **Preview deployments** para PRs
+- URL: `proyecto.vercel.app`
 
 ### AWS
-- 💰 **Capa gratuita** disponible (12 meses)
-- ✅ **Muy escalable**
-- ⚠️ Requiere configuración más compleja
-- ✅ Control total de infraestructura
+- **Capa gratuita** disponible (12 meses)
+- **Muy escalable**
+- Requiere configuración más compleja
+- Control total de infraestructura
 
 ### Azure
-- 💰 **Capa gratuita** disponible
-- ✅ **Integración con GitHub Actions**
-- ✅ **HTTPS automático**
-- ✅ **Global CDN**
-- 🔗 URL: `nombre.azurestaticapps.net`
+- **Capa gratuita** disponible
+- **Integración con GitHub Actions**
+- **HTTPS automático**
+- **Global CDN**
+- URL: `nombre.azurestaticapps.net`
 
-## 🔧 Solución de Problemas
+## Solución de Problemas
 
 ### El juego no carga
 - Verifica que todos los archivos estén en la misma carpeta
@@ -288,11 +288,11 @@ Abre tu navegador en: http://localhost:8000
 - Verifica que `vercel.json` esté en la raíz del proyecto
 - Asegúrate de que el proyecto esté en la rama correcta
 
-## 📄 Licencia
+## Licencia
 
 MIT License - Siéntete libre de usar y modificar este código.
 
-## 👨‍💻 Desarrollo
+## Desarrollo
 
 Para contribuir al proyecto:
 

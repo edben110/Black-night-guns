@@ -1,5 +1,9 @@
-import {Entity} from './Entity'
-class Player extends Entity {
+import { Entity } from './Entity.js'
+import { Bullet } from './Bullet.js'
+import { drawProgressBar } from './utils.js'
+import { canvas, ctx, topLimit, bottomLimit, COLORS, RELOAD_TIME, HEAL_TIME } from './config.js'
+
+export class Player extends Entity {
   constructor() {
     super(100, bottomLimit - 60, 40, 60, COLORS.player);
     this.vx = 0; this.vy = 0;
@@ -46,7 +50,7 @@ class Player extends Entity {
 
   attack(enemy) {
     if (this.attackCooldown === 0) {
-      if (Math.abs(this.x - enemy.x) < 80 && Math.abs(this.y - enemy.y) < 50) {
+      if (enemy && Math.abs(this.x - enemy.x) < 80 && Math.abs(this.y - enemy.y) < 50) {
         enemy.health -= 25;
         enemy.knockbackVX = this.direction === 1 ? 10 : -10;
         enemy.knockbackFrames = 10;

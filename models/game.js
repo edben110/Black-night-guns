@@ -1,17 +1,10 @@
-import {Enemy} from './Enemy'
-import {Player} from './Player'
-import {Bullet} from './Bullet'
-import {Ammo} from './pickups/Ammo'
-import {Heal} from './pickups/Heals' 
+import { Enemy } from './Enemy.js'
+import { Player } from './Player.js'
+import { Ammo } from './pickups/Ammo.js'
+import { Heal } from './pickups/Heals.js'
+import { canvas, ctx, topLimit, bottomLimit } from './config.js'
 
-const canvas = document.getElementById("game");
-const ctx = canvas.getContext("2d");
 const restartBtn = document.getElementById("restartBtn");
-
-// Constantes globales
-const topLimit = 200, bottomLimit = 400;
-const RELOAD_TIME = 300, HEAL_TIME = 120;
-const COLORS = { player: "cyan", enemy: "orange", ammo: "blue", heal: "green", bullet: "yellow" };
 
 let gameOver = false, paused = false, kills = 0;
 let player, currentEnemy, bullets = [], ammoPicks = [], healPicks = [];
@@ -22,23 +15,23 @@ let player, currentEnemy, bullets = [], ammoPicks = [], healPicks = [];
 
 
 /** ---------------------- FUNCIONES AUXILIARES ---------------------- **/
-function drawProgressBar(entity, progress) {
-  const barW = 40;
-  ctx.fillStyle = "#555"; ctx.fillRect(entity.x, entity.y + entity.h + 5, barW, 6);
-  ctx.fillStyle = "yellow"; ctx.fillRect(entity.x, entity.y + entity.h + 5, barW * (1 - progress), 6);
-}
-
 function randomPosition() {
   let x; do { x = Math.random() * (canvas.width - 60) + 30; } while (Math.abs(x - player.x) < 150);
   let y = Math.random() * (bottomLimit - topLimit - 60) + topLimit;
   return { x, y };
 }
 
+function spawnEnemy() {
+  const pos = randomPosition();
+  return new Enemy(pos.x, pos.y);
+}
+
 function resetGame() {
   player = new Player();
-  currentEnemy = new Enemy(...Object.values(randomPosition()));
+  currentEnemy = spawnEnemy();
   bullets = []; ammoPicks = []; healPicks = [];
   kills = 0; gameOver = false; paused = false;
+  Object.keys(keys).forEach(key => delete keys[key]);
   restartBtn.style.display = "none"; gameLoop();
 }
 
@@ -62,12 +55,13 @@ const controls = {
         pickup.active = false;
       }
     });
-  },
-  "p": () => paused = !paused
+  }
 };
 
 window.addEventListener("keydown", e => {
   keys[e.key.toLowerCase()] = true;
+  if (e.repeat) return;
+  if (e.key.toLowerCase() === "p" && !gameOver) paused = !paused;
   if (e.key === "Enter" && gameOver) resetGame();
 });
 window.addEventListener("keyup", e => keys[e.key.toLowerCase()] = false);
@@ -82,7 +76,7 @@ function handleInput() {
 function drawHUD() {
   ctx.fillStyle = "black"; ctx.fillRect(0, 0, canvas.width, 30);
   ctx.fillStyle = "white"; ctx.font = "14px sans-serif";
-  const estado = paused ? "PAUSADO" : player.reloading ? "RECARGANDO" : player.canShoot ? "CARGADO" : player.ammo > 0 ? "VACÍO" : "";
+  const estado = paused ? "PAUSADO" : player.reloading ? "RECARGANDO" : player.canShoot ? "CARGADO" : player.ammo > 0 ? "POR RECARGAR" : "SIN MUNICIÓN";
   ctx.fillText(`Vida: ${player.health} | Vendajes: ${player.bandages} | Balas: ${player.canShoot ? player.ammo + 1 : player.ammo} | Enemigos: ${kills} | Estado: ${estado}`, 20, 20);
 }
 
@@ -108,7 +102,7 @@ function gameLoop() {
     if (currentEnemy.health <= 0) {
       if (kills % 5 === 0) ammoPicks.push(new Ammo(currentEnemy.x, currentEnemy.y));
       if (kills % 7 === 0) healPicks.push(new Heal(currentEnemy.x, currentEnemy.y));
-      kills++; currentEnemy = new Enemy(...Object.values(randomPosition())); player.reloading = false;
+      kills++; currentEnemy = spawnEnemy(); player.reloading = false;
     }
   }
 

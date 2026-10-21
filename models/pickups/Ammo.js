@@ -1,2 +1,4 @@
-import {Pickup} from './Pickup'
-class Ammo extends Pickup { constructor(x, y) { super(x, y, COLORS.ammo); } }
+import { Pickup } from './Pickup.js'
+import { COLORS } from '../config.js'
+
+export class Ammo extends Pickup { constructor(x, y) { super(x, y, COLORS.ammo); } }

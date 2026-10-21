@@ -1,5 +1,7 @@
-import {Entity} from './Entity'
-class Enemy extends Entity {
+import { Entity } from './Entity.js'
+import { ctx, COLORS } from './config.js'
+
+export class Enemy extends Entity {
   constructor(x, y) {
     super(x, y, 40, 60, COLORS.enemy);
     this.speed = 1.2; this.health = 100; this.attackCooldown = 0; this.damage = 10;
@@ -10,7 +12,7 @@ class Enemy extends Entity {
     this.y += this.y < targetY ? this.speed : -this.speed;
     this.x += this.x < player.x ? this.speed : -this.speed;
     if (Math.abs(this.x - player.x) < 40 && Math.abs(this.y - player.y) < 40 && this.attackCooldown === 0) {
-      if (!player.isJumping || player.attaking) {
+      if (!player.isJumping) {
         player.health -= this.damage;
         player.knockbackVX = player.direction !== -1 ? -10 : 10;
         player.knockbackFrames = 10;
